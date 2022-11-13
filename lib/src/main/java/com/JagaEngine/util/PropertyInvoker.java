@@ -39,6 +39,7 @@ public class PropertyInvoker<T>
         // cache the object name for throwing exceptions.
         String objName = obj.toString();
 
+        // find the getter by looking for the method named "getbasePropertyName".
         try
         {
             getMethod = obj.getClass().getMethod("get" + basePropertyName);
@@ -53,6 +54,7 @@ public class PropertyInvoker<T>
             throw new NoSuchMethodException("get" + basePropertyName + " does not exist for object " + objName);
         }
 
+        // find the setter by looking for the method named "setbasePropertyName"
         try
         {
             // we need to pass the T type as the second argument to the set method

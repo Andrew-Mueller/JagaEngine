@@ -110,7 +110,9 @@ public class JagaActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        
+
+        // TODO: migrate this somewhere for reuse between the
+        //       live wallpaper and an application view
         final ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
         
         final android.content.pm.ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();

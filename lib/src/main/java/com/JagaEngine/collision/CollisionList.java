@@ -5,6 +5,9 @@ import java.util.Enumeration;
 
 import com.JagaEngine.geometry.Ray;
 
+/**
+ * container for collidable objects.
+ */
 public class CollisionList
 {
     protected Hashtable<ICollidable, ICollisionResponse> collisionList;
