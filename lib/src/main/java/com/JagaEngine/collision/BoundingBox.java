@@ -28,22 +28,6 @@ public class BoundingBox implements ICollidable
         this.height = height;
     }
 
-    @Override
-    public boolean boundCheck(float x, float y)
-    {
-        boolean status = false;
-
-        if (x >= this.x && x <= this.x + this.width)
-        {
-            if (y >= this.y && y <= this.y + this.height)
-            {
-                status = true;
-            }
-        }
-
-        return status;
-    }
-
     public boolean boundCheck(Ray ray)
     {
         return false;

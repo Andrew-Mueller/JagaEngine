@@ -6,5 +6,5 @@ package com.JagaEngine.collision;
  */
 public interface ICollisionResponse
 {
-    public void doResponse();
+    public void doResponse(Object collisionObject);
 }
