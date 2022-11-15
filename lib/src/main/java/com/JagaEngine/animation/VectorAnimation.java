@@ -121,6 +121,10 @@ public class VectorAnimation extends AnimationBase
                         {
                             // there is a little glitch here because it will never actually reach the endValue
                             delta = getDistance();
+
+                            // set the currentPos back to the start position
+                            currentPosition.setValue((Vector)startingTargetValue);
+
                             break;
                         }
                         case AUTOREVERSE:

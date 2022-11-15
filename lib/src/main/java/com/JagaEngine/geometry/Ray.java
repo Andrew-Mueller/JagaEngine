@@ -39,8 +39,6 @@ public class Ray
         // of this triangle is the distance from the point to the ray.
         float distanceFromPointToRay = areaOfTriangleTimesTwo / lengthOfBase;
 
-        android.util.Log.i("Ray", "Distance to ray " + distanceFromPointToRay);
-
         return distanceFromPointToRay;
     }
 

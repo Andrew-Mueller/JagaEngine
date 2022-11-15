@@ -83,12 +83,6 @@ public class CollidableQuad extends Quad implements ICollidable, ICollisionRespo
     {
         boundingSphere = new Sphere(new com.JagaEngine.geometry.Point(this.getX(), this.getY(), this.getZ()), this.getHeight() / 2f);
 
-        // TODO: remove this
-        if (!ray.intersects(boundingSphere))
-        {
-            setColor(0.0f, 1.0f, 0.0f);
-        }
-
         return ray.intersects(boundingSphere);
     }
 

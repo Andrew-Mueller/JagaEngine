@@ -78,8 +78,6 @@ public class JagaRenderer implements Renderer
 
         // TODO: texture was loaded here in the example application
 
-        // NOTE: all of the objects are created here.  i'm not sure if this is necessary
-
         // done-ski, send the message letting the UI thread know that the OpenGL surface
         // is done being created
         Message doneMsg = messageHandler.obtainMessage(SURFACE_CREATED, this.colorProgram);
