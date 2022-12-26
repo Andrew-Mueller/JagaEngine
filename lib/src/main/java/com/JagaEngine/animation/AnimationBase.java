@@ -72,10 +72,14 @@ public abstract class AnimationBase implements IAnimator
     public Object getEndingTargetValue() { return endingTargetValue; }
     public void setEndingTargetValue(Object targetValue) { endingTargetValue = targetValue; }
 
+    public void setStartingTargetValue(Object targetValue) { startingTargetValue = targetValue; }
+
     public RepeatAnimation getRepeat() { return repeat; }
     public void setRepeat(RepeatAnimation repeatAnim) { repeat = repeatAnim; }
 
     public void setTimer(ITimer timer) { this.timer = timer; }
+
+    public abstract void setSpeed(double seconds) throws InvocationTargetException, IllegalAccessException;
 
     public abstract void animate() throws Exception;
     public abstract void pause();
@@ -90,11 +94,11 @@ public abstract class AnimationBase implements IAnimator
     /**
      * Safe calling of the AnimationComplete event.
      */
-    protected void onAnimationComplete()
+    protected void onAnimationComplete(Object animationObject)
     {
         if (handleComplete != null)
         {
-            handleComplete.animationComplete();
+            handleComplete.animationComplete(animationObject);
         }
     }
 

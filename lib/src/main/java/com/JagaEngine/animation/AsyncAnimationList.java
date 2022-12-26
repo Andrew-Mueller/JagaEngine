@@ -7,7 +7,7 @@ package com.JagaEngine.animation;
 public class AsyncAnimationList extends AnimationList implements IAnimationCompleteHandler
 {
     @Override
-    public void animationComplete()
+    public void animationComplete(Object animationObject)
     {
         // intentionally left blank
     }

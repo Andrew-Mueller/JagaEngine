@@ -57,7 +57,7 @@ public class SyncAnimationList extends AnimationList implements IAnimationComple
     /**
      * IAnimationCompleteHandler member
      */
-    public void animationComplete()
+    public void animationComplete(Object animationObject)
     {
         currentAnimIndex++;
 

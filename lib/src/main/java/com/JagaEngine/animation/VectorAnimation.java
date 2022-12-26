@@ -11,6 +11,11 @@ public class VectorAnimation extends AnimationBase
 
     private PropertyInvoker<Vector> currentPosition;
 
+    public Object getTargetObject()
+    {
+        return currentPosition.getTarget();
+    }
+
     protected boolean maskX;
     protected boolean maskY;
     protected boolean maskZ;
@@ -51,6 +56,12 @@ public class VectorAnimation extends AnimationBase
         this.maskY = maskY;
         this.maskZ = maskZ;
 
+        setSpeed(seconds);
+    }
+
+    @Override
+    public void setSpeed(double seconds) throws InvocationTargetException, IllegalAccessException
+    {
         this.speedValue = java.lang.Math.abs(getDistance()) / seconds;
     }
 
@@ -125,6 +136,9 @@ public class VectorAnimation extends AnimationBase
                             // set the currentPos back to the start position
                             currentPosition.setValue((Vector)startingTargetValue);
 
+                            // signal that the animation has completed (even though we are continuing
+                            onAnimationComplete(this);
+
                             break;
                         }
                         case AUTOREVERSE:
@@ -140,7 +154,7 @@ public class VectorAnimation extends AnimationBase
                         {
                             this.animate = false;
 
-                            onAnimationComplete();
+                            onAnimationComplete(this);
                             break;
                         }
                     }

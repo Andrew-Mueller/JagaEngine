@@ -134,4 +134,12 @@ public class PropertyInvoker<T>
 
         return getterName;
     }
+
+    /**
+     * @return The object that this property invoker is acting on.
+     */
+    public Object getTarget()
+    {
+        return this.obj;
+    }
 }

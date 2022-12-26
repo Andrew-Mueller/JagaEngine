@@ -5,5 +5,5 @@ package com.JagaEngine.animation;
  */
 public interface IAnimationCompleteHandler
 {
-    public void animationComplete();
+    public void animationComplete(Object animationObject);
 }

@@ -24,9 +24,7 @@ public class DoubleAnimation extends AnimationBase implements ISubscriber
 
         this.currentPosition = currentPosition;
 
-        // NOTE: why are we converting to float here...  seems like we are clamping to the resolution of the float data type.
-        //
-        this.speedValue = (double)((float)endingTargetValue - (float)this.currentPosition.getValue()) / (float)seconds;
+        setSpeed(seconds);
 
         this.speedUnit = SpeedUnits.PIXELS;
         this.speedRate = SpeedRate.PER_SECOND;
@@ -37,6 +35,14 @@ public class DoubleAnimation extends AnimationBase implements ISubscriber
         // subscribe to the 'host' object's PAUSE and RESUME signals
         currentPosition.addSubscriber(this);
 
+    }
+
+    @Override
+    public void setSpeed(double seconds) throws  InvocationTargetException, IllegalAccessException
+    {
+        // NOTE: why are we converting to float here...  seems like we are clamping to the resolution of the float data type.
+        //
+        this.speedValue = (double)((float)endingTargetValue - (float)this.currentPosition.getValue()) / (float)seconds;
     }
 
     @Override
@@ -97,7 +103,7 @@ public class DoubleAnimation extends AnimationBase implements ISubscriber
                         {
                             this.animate = false;
 
-                            onAnimationComplete();
+                            onAnimationComplete(this);
                             break;
                         }
                     }
